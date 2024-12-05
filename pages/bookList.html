@@ -1,0 +1,22 @@
+{{define "body"}}
+<title>{{.title}}</title>
+<h1 class="text-7xl text-yellow-400 font-bold p-10">BOOKS WE HAVE READ!!!!</h1>
+{{range $index, $element := .bookListItems}}
+<div class="max-w-lg rounded bg-gray-500 overflow-hidden grid content-center m-auto mb-10 p-5 shadow-lg">
+    <img class="w-full" src="{{$element.volumeInfo.imageLinks.thumbnail}}" alt="Sunset in the mountains">
+    <div class="px-6 py-4">
+      <div class="font-bold text-yellow-400 hover:text-yellow-200 underline underline-offset-4 text-3xl mb-2">{{$element.volumeInfo.title}}</div>
+      <p class="text-base font-semibold">
+        {{$element.volumeInfo.description}}
+      </p>
+    </div>
+    <div class="px-6 pt-4 pb-2">
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Average Rating: {{$element.volumeInfo.averageRating}}</span>
+    </div>
+  </div>
+{{else}}
+<div class="px-6 pt-4 pb-2">
+    No Books listed!
+</div>
+{{end}}
+{{end}}
